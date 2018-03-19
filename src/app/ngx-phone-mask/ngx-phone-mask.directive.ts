@@ -4,25 +4,24 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 const noop = () => { };
 
 const masks = [
-	'1',
-	'1 (1',
-	'1 (11',
-	'1 (111',
-	'1 (111) 1',
-	'1 (111) 11',
-	'1 (111) 11-1',
-	'1 (111) 11-11',
-	'1 (111) 11-111',
-	'1 (111) 111-111',
-	'1 (111) 111-11-11',
-	'1 (111) 111-111-11'
+	'(1',
+	'(11',
+	'(111',
+	'(111) 1',
+	'(111) 11',
+	'(111) 11-1',
+	'(111) 11-11',
+	'(111) 11-111',
+	'(111) 111-111',
+	'(111) 111-11-11',
+	'(111) 111-111-11'
 ];
 
 const clean = (number) => {
 	return number
 		.toString()
 		.replace(/[^\d\^]/gm, '');
-}
+};
 
 const format = (number) => {
 	let lastCharIndex = 0;
@@ -60,10 +59,10 @@ const format = (number) => {
 	cursorPosition++; // because of '+'
 
 	return {
-		formatted: `+${formatted}`,
+		formatted: `${formatted}`,
 		cursorPosition
 	}
-}
+};
 
 @Directive({
 	selector: '[ngxPhoneMask]',
